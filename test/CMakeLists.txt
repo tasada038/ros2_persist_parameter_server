@@ -33,20 +33,45 @@ add_executable(client
   src/test.cpp
   src/persist_parameter_client.cpp
 )
+ament_target_dependencies(client
+  rclcpp
+  rclcpp_components
+  std_msgs
+  rcutils
+)
+
+# add client sample a
+add_executable(client_a_node
+  src/client_a.cpp
+)
+ament_target_dependencies(client_a_node
+  rclcpp
+)
+# add client sample b
+add_executable(client_b_node
+  src/client_b.cpp
+)
+ament_target_dependencies(client_b_node
+  rclcpp
+)
 
 target_link_libraries(client
   rclcpp::rclcpp
   rcutils::rcutils
 )
 
-target_include_directories(client
+target_include_directories(
+  client
   PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
 
-ament_target_dependencies(client rclcpp rclcpp_components std_msgs rcutils)
-
-install(TARGETS client DESTINATION lib/${PROJECT_NAME})
+install(TARGETS
+  client
+  client_a_node
+  client_b_node
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 # Install launch files.
 install(DIRECTORY

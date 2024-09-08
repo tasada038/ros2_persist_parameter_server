@@ -1,21 +1,15 @@
 /**:
-    ros__parameters:
-        # This file is expected to be used as following,
-        # > ros2 run parameter_server server --file-path /tmp/parameter_server.yaml
-        #
-        # Not persistent parameter.
-        # These just will be loaded as normal parameters.
-        some_int: 1
-        a_string: "Hello world"
-        pi: 3.14
-        some_lists:
-            some_integers: [1, 2, 3, 4]
-        # persistent parameter.
-        # these parameters will be registered as persistent parameter,
-        # so during shutdown, these will be stored back in the storage if any updates available.
-        persistent:
-            some_int: 1
-            a_string: 'Hello world'
-            pi: 3.14
-            some_lists:
-                some_integers: [1, 2, 3, 4]
+  ros__parameters:
+    some_int: 1
+    a_string: Hello world
+    pi: 3.14
+    some_lists:
+      some_integers: [1, 2, 3, 4]
+    persistent:
+      a_string: 'Hello world'
+      double: 3.1400000000000001
+      double_array: [1.1000000000000001, 2.2000000000000002, 3.2999999999999998]
+      pi: 3.1400000000000001
+      some_int: 17
+      some_lists:
+        some_integers: [1, 2, 3, 4]
